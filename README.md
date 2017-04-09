@@ -11,9 +11,9 @@ ordering is applied.
 
 mac_conversion -T|-D [–f filename | -h hex value ]
 
--T Use time conversion module. Either –f or –h must be given. 
+      -T Use time conversion module. Either –f or –h must be given. 
 
--D Use date conversion module. Either –f or –h must be given.
+      -D Use date conversion module. Either –f or –h must be given.
 
       -f filename
       
