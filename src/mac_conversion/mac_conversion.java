@@ -21,9 +21,9 @@ public class mac_conversion {
             }else{
                 System.out.println("Error. Incorrect input.");
             }
-            
         }
     }
+
     private static String readFromFile(String file){
         String hex;
         try {
