@@ -4,18 +4,18 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class address4forensics {
-    private static final String[] months = {"Jan","Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"};
 
     public static void main(String[] args) {
          if(args.length != 0){
-            String hex = getString(args);
+
+            String val = getString(args);
+
             if(args[0].equalsIgnoreCase("-L")){
-                //logical address
+                logicaladdress(val);
             }else if(args[0].equalsIgnoreCase("-P")){
-                //physical address
+                physicaladdress(val);
             }else if (args[0].equalsIgnoreCase("-P")){
-                //cluster address
+                clusteraddress(val);
             }
             else{
                 System.out.println("Error. Incorrect input.");
@@ -23,33 +23,56 @@ public class address4forensics {
         }
     }
 
-    private static String readFromFile(String file){
-        String hex;
-        try {
-            FileReader fileReader = new FileReader(file);
-            Scanner scanner =  new Scanner(fileReader);
-            hex = scanner.nextLine();
-            scanner.close();
-            return hex;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    private static String getString(String[] args){
+
+        String val;
+
+        if (args[1].equals("-b")) {
+            val = offset(args[2]);
+
+        }else if (!args[1].equals("-B")){
+            val = byteaddress(args[2]);
+
+        }else if (!args[1].equals("--physical-known")){ //need to still fix as well as others
+            val = physicalknown(args[1]);
+
+        }else if (!args[1].equals("--logical-known")){
+            val = logicalknown(args[1]);
+
+        }else if (!args[1].equals("--cluster-known")){
+            val = clusterknown(args[1]);
+
+        }else {
+            System.out.println("Error. Incorrect input.");
             return null;
         }
+        return val;
     }
 
-    //get string
 
-    //logical address -L
 
-    //physical address -P
+    private static string logicaladdress(String val){
+        return ""
+    }
 
-    //cluster address -C
 
-    //---------------
+    private static string physicaladdress(String val){
+        return ""
+    }
 
-    //offset -b
 
-    //byte-address -B
+
+    private static string clusteraddress(String val){
+        return ""
+    }
+
+    private static string offset(String val){
+        return ""
+    }
+
+    private static string byteaddress(String val){
+        return ""
+    }
 
     //sector size -s (requires -B)
 
