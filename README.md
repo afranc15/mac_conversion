@@ -1,5 +1,4 @@
-# mac_conversion
-CSE 469 Computer and Network Forensics Class Project 
+# CSE 469 Computer and Network Forensics Class Project 
 
 ## Task 1 
 
@@ -72,10 +71,12 @@ address4forensics -L|-P|-C [–b offset] [-B [-s bytes]] [-l address] [-p addres
 
 
 An example of this in use would be the following, where the desired number is the logical address of physical sector 12345678 in a partition that begins at physical sector 128:
+
 $ address4forensics –L –b 128 --physical-known=12345678 12345550
 
 
 Another example shows the utility getting the physical address of cluster 58, in a partition that begins at physical sector 128, has 2 FAT tables that are each 16 sectors long, 6 reserved sectors, and 4 sectors per cluster:
+
 $ address4forensics –P –-partition-start=128 –c 58 –k 4 –r 6 –t 2 –f 16
 390
 
