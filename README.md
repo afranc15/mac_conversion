@@ -124,9 +124,9 @@ The next tasks your program must be able to accomplish are
 Locate and extract the partition tables from the master boot record (MBR)
 
 a. Your program MUST generate the partition type including hex value and corresponding type, start sector address, and size of each partition in decimal as follows:
+(07) NTFS, 0002056320, 0000208845
 
 #### 2.
-(07) NTFS, 0002056320, 0000208845
 
 For FAT16/32 partition, read each partition’s volume boot record (VBR) and retrieve the
  geometric data of the file system. Your code MUST generate the following layout information
