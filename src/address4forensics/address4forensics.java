@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.Scanner;
 
 public class address4forensics {
@@ -8,14 +6,12 @@ public class address4forensics {
     public static void main(String[] args) {
          if(args.length != 0){
 
-            String val = getString(args);
-
             if(args[0].equalsIgnoreCase("-L")){
-                logicaladdress(val);
+                logicaladdress(args);
             }else if(args[0].equalsIgnoreCase("-P")){
-                physicaladdress(val);
-            }else if (args[0].equalsIgnoreCase("-P")){
-                clusteraddress(val);
+                physicaladdress(args);
+            }else if (args[0].equalsIgnoreCase("-C")){
+                clusteraddress(args);
             }
             else{
                 System.out.println("Error. Incorrect input.");
@@ -23,63 +19,92 @@ public class address4forensics {
         }
     }
 
-    private static String getString(String[] args){
+    private static void logicaladdress(String[] val){
 
-        String val;
+        try {
+            System.out.print(val[0] + " ");
 
-        if (args[1].equals("-b")) {
-            val = offset(args[2]);
-
-        }else if (!args[1].equals("-B")){
-            val = byteaddress(args[2]);
-
-        }else if (!args[1].equals("--physical-known")){ //need to still fix as well as others
-            val = physicalknown(args[1]);
-
-        }else if (!args[1].equals("--logical-known")){
-            val = logicalknown(args[1]);
-
-        }else if (!args[1].equals("--cluster-known")){
-            val = clusterknown(args[1]);
-
-        }else {
-            System.out.println("Error. Incorrect input.");
-            return null;
+            if (val[1].equals("-b")) {
+                System.out.print(val[1] + " ");
+                System.out.print(val[2] + " ");
+            } else {
+                //set -b to 0 otherwise
+            }
+            if (val[3].contains("--physical-known") || val[3].equals("-p")){
+                System.out.println(val[3]);
+                //calculate with physical-known
+            } else if (val[3].contains("--cluster-known") ||  val[3].equals("-c")){
+                System.out.println(val[3]);
+                clusterknown(val[5], val[7], val[9], val[11]);
+            }
+        } catch (Exception e) {
+            System.out.println("Unexcepted Exception");
+            e.printStackTrace();
         }
-        return val;
+
     }
 
 
+    private static void physicaladdress(String[] val){
 
-    private static string logicaladdress(String val){
-        return ""
+        try {
+            System.out.print(val[0] + " ");
+
+            if (val[1].equals("-b")) {
+                System.out.print(val[1] + " ");
+                System.out.print(val[2] + " ");
+            } else if (val[1].contains("--partition-start")) {
+                //parseValue
+            } else {
+                //set -b to 0 otherwise
+            }
+
+            if (val[3].contains("--logical-known") || val[3].equals("-l")){
+                System.out.println(val[3]);
+                //calculate with physical-known
+            } else if (val[3].contains("--cluster-known") ||  val[3].equals("-c")){
+                System.out.println(val[3]);
+                clusterknown(val[5], val[7], val[9], val[11]);
+            }
+        } catch (Exception e) {
+            System.out.println("Unexcepted Exception");
+            e.printStackTrace();
+        }
     }
 
+    private static void clusteraddress(String[] val){
 
-    private static string physicaladdress(String val){
-        return ""
+        try {
+            System.out.print(val[0] + " ");
+
+            if (val[1].equals("-b")) {
+                System.out.print(val[1] + " ");
+                System.out.print(val[2] + " ");
+            } else {
+                //set -b to 0 otherwise
+            }
+            if (val[3].contains("--logical-known") || val[3].equals("-l")){
+                System.out.println(val[3]);
+                //calculate with physical-known
+            } else if (val[3].contains("--physical-known") ||  val[3].equals("-p")){
+                System.out.println(val[3]);
+                clusterknown(val[5], val[7], val[9], val[11]);
+            }
+        } catch (Exception e) {
+            System.out.println("Unexcepted Exception");
+            e.printStackTrace();
+        }
     }
 
-
-
-    private static string clusteraddress(String val){
-        return ""
+    private static void physicalknown(String val){
+        //
     }
 
-    private static string offset(String val){
-        return ""
+    private static void logicalknown(String val){
+        //
     }
 
-    private static string byteaddress(String val){
-        return ""
+    private static void clusterknown(String k, String r, String t, String f){
+        System.out.println("k: " + k + " r: " + r + " t: " + t + " f: " + f);
     }
-
-    //sector size -s (requires -B)
-
-    //address -l when -C or -P is used. Else returns logical address
-
-    //address -p when -C or -L are used. Else returns physical address
-
-    //address -c when -P or -L are used. Else returns cluster address. -k -r -t -f are required for this.
-
 }
