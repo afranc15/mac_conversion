@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class address4forensics {
 
@@ -14,7 +14,7 @@ public class address4forensics {
                 clusteraddress(args);
             }
             else{
-                System.out.println("Error. Incorrect input.");
+                System.out.println("Your input is incorrect: " + Arrays.toString(args));
             }
         }
     }
@@ -27,9 +27,12 @@ public class address4forensics {
             if (val[1].equals("-b")) {
                 System.out.print(val[1] + " ");
                 System.out.print(val[2] + " ");
+            } else if (val[1].contains("--partition-start")) {
+                //parseValue
             } else {
                 //set -b to 0 otherwise
             }
+
             if (val[3].contains("--physical-known") || val[3].equals("-p")){
                 System.out.println(val[3]);
                 //calculate with physical-known
@@ -38,8 +41,7 @@ public class address4forensics {
                 clusterknown(val[5], val[7], val[9], val[11]);
             }
         } catch (Exception e) {
-            System.out.println("Unexcepted Exception");
-            e.printStackTrace();
+            System.out.println("Your input is incorrect: " + Arrays.toString(val));
         }
 
     }
@@ -67,8 +69,7 @@ public class address4forensics {
                 clusterknown(val[5], val[7], val[9], val[11]);
             }
         } catch (Exception e) {
-            System.out.println("Unexcepted Exception");
-            e.printStackTrace();
+            System.out.println("Your input is incorrect: " + Arrays.toString(val));
         }
     }
 
@@ -80,9 +81,12 @@ public class address4forensics {
             if (val[1].equals("-b")) {
                 System.out.print(val[1] + " ");
                 System.out.print(val[2] + " ");
+            } else if (val[1].contains("--partition-start")) {
+                //parseValue
             } else {
                 //set -b to 0 otherwise
             }
+
             if (val[3].contains("--logical-known") || val[3].equals("-l")){
                 System.out.println(val[3]);
                 //calculate with physical-known
@@ -91,8 +95,7 @@ public class address4forensics {
                 clusterknown(val[5], val[7], val[9], val[11]);
             }
         } catch (Exception e) {
-            System.out.println("Unexcepted Exception");
-            e.printStackTrace();
+            System.out.println("Your input is incorrect: " + Arrays.toString(val));
         }
     }
 
