@@ -24,12 +24,12 @@ public class address4forensics {
             {
                 if (cmdLine.hasOption("p"))
                     {
-                        //- offset
                         finalResult = Integer.parseInt(cmdLine.getOptionValue("p")) - offSet;
                     }
                 else if (cmdLine.hasOption("c"))
                     {
-                        //User cluster info
+                        finalResult = ((((Integer.parseInt(cmdLine.getOptionValue("c")) -2 )  * Integer.parseInt(cmdLine.getOptionValue("k"))) + Integer.parseInt(cmdLine.getOptionValue("r"))) +
+                                       (Integer.parseInt(cmdLine.getOptionValue("t")) * Integer.parseInt(cmdLine.getOptionValue("f"))) - offSet);
                     }
                 else //Logical-known
                     {
@@ -44,11 +44,11 @@ public class address4forensics {
                     }
                 else if (cmdLine.hasOption("c"))
                     {
-                        //User cluster info
+                        finalResult = ((((Integer.parseInt(cmdLine.getOptionValue("c")) -2 )  * Integer.parseInt(cmdLine.getOptionValue("k"))) + Integer.parseInt(cmdLine.getOptionValue("r"))) +
+                                       (Integer.parseInt(cmdLine.getOptionValue("t")) * Integer.parseInt(cmdLine.getOptionValue("f"))) + offSet);
                     }
                 else //Logical-known
                     {
-                        // + offset
                         finalResult = Integer.parseInt(cmdLine.getOptionValue("l")) + offSet;
                     }
             }
@@ -56,7 +56,7 @@ public class address4forensics {
             {
                 if (cmdLine.hasOption("p"))
                     {
-                        //User cluster info
+                        finalResult = ((((Integer.parseInt(cmdLine.getOptionValue("p")) - offSet) - (Integer.parseInt(cmdLine.getOptionValue("r")) + Integer.parseInt(cmdLine.getOptionValue("t")) * Integer.parseInt(cmdLine.getOptionValue("f")))) / Integer.parseInt(cmdLine.getOptionValue("k"))) + 2);
                     }
                 else if (cmdLine.hasOption("c"))
                     {
@@ -64,7 +64,7 @@ public class address4forensics {
                     }
                 else //Logical-known
                     {
-                        //User cluster info
+                        finalResult = (((Integer.parseInt(cmdLine.getOptionValue("l")) - (Integer.parseInt(cmdLine.getOptionValue("r")) + Integer.parseInt(cmdLine.getOptionValue("t")) * Integer.parseInt(cmdLine.getOptionValue("f")))) / Integer.parseInt(cmdLine.getOptionValue("k"))) + 2);
                     }
             }
 
@@ -274,10 +274,6 @@ public class address4forensics {
                                 System.out.print("Option l is present. Known Logical Address: ");
                                 System.out.println(commandLine.getOptionValue("l"));
                             }
-                        else
-                            {
-                                System.out.println("Option l is present. Known Logical Address calculated value is : X");
-                            }
                     }
 
                 if (commandLine.hasOption("p"))
@@ -286,10 +282,6 @@ public class address4forensics {
                             {
                                 System.out.print("Option p is present. Known Physical Address is the same: ");
                                 System.out.println(commandLine.getOptionValue("p"));
-                            }
-                        else
-                            {
-                                System.out.println("Option p is present. Known Physical Address calculated value is : X");
                             }
                     }
 
@@ -303,10 +295,6 @@ public class address4forensics {
                             {
                                 System.out.print("Option c is present. Known Cluster Address is the same: ");
                                 System.out.println(commandLine.getOptionValue("c"));
-                            }
-                        else
-                            {
-                                System.out.println("Option c is present. Known Cluster Address calculated value is: X");
                             }
                     }
 
