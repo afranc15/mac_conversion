@@ -1,2 +1,33 @@
 #!/bin/bash
 javac -cp commons-cli-1.4.jar: address4forensics.java
+
+echo "Compiling.."
+echo ""
+echo "-----------------------------------------------------------------------------------------------------"
+echo java -cp commons-cli-1.4.jar: address4forensics -L -P -C --partition-start=128 --byte-address -s 234234 -l 124 --physical-known=234 -c 2 --cluster-size=20 -r 2 -t 2 -f 5
+java -cp commons-cli-1.4.jar: address4forensics -L -P -C --partition-start=128 --byte-address -s 234234 -l 124 --physical-known=234 -c 2 --cluster-size=20 -r 2 -t 2 -f 5
+
+#echo ""
+#echo "-----------------------------------------------------------------------------------------------------"
+#echo java -cp commons-cli-1.4.jar: address4forensics -L  --partition-start=128 --byte-address -s 234234 -l 124 --physical-known=234 -c 2 --cluster-size=20 -r 2 -t 2 -f 5
+#java -cp commons-cli-1.4.jar: address4forensics -L  --partition-start=128 --byte-address -s 234234 -l 124 --physical-known=234 -c 2 --cluster-size=20 -r 2 -t 2 -f 5
+
+#echo ""
+#echo "-----------------------------------------------------------------------------------------------------"
+#echo java -cp commons-cli-1.4.jar: address4forensics -P  --partition-start=128 --byte-address -s 234234 -l 124 --physical-known=234 -c 2 --cluster-size=20 -r 2 -t 2 -f 5
+#java -cp commons-cli-1.4.jar: address4forensics -P  --partition-start=128 --byte-address -s 234234 -l 124 --physical-known=234 -c 2 --cluster-size=20 -r 2 -t 2 -f 5
+
+#echo ""
+#echo "-----------------------------------------------------------------------------------------------------"
+#echo java -cp commons-cli-1.4.jar: address4forensics -C  --partition-start=128 --byte-address -s 234234 -l 124 --physical-known=234 -c 2 --cluster-size=20 -r 2 -t 2 -f 5
+#java -cp commons-cli-1.4.jar: address4forensics -C  --partition-start=128 --byte-address -s 234234 -l 124 --physical-known=234 -c 2 --cluster-size=20 -r 2 -t 2 -f 5
+
+echo ""
+echo "-----------------------------------------------------------------------------------------------------"
+echo java -cp commons-cli-1.4.jar: address4forensics -L -b 128 --physical-known=12345678
+java -cp commons-cli-1.4.jar: address4forensics -L -b 128 --physical-known=12345678
+
+echo ""
+echo "-----------------------------------------------------------------------------------------------------"
+echo java -cp commons-cli-1.4.jar: address4forensics -P --partition-start=128 -c 58 -k 4 -r 6 -t 2 -f 16
+java -cp commons-cli-1.4.jar: address4forensics -P --partition-start=128 -c 58 -k 4 -r 6 -t 2 -f 16

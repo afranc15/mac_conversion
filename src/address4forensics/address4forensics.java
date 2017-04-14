@@ -10,6 +10,10 @@ import org.apache.commons.cli.ParseException;
 
 public class address4forensics {
 
+    public static String calculateAddress(String addressValue, String addressType, String knownTypeA, String knownTypeB){
+        return "";
+    }
+
 
 public static void main(String[] args) {
     CommandLine commandLine;
@@ -18,17 +22,14 @@ public static void main(String[] args) {
         //============================ define options ========================================//
     Option L = Option.builder("L")
         .longOpt("logical")
-        .desc("Calculates logical address")
         .build();
 
     Option P = Option.builder("P")
         .longOpt("physical")
-        .desc("Calculates physical address")
         .build();
 
     Option C = Option.builder("C")
         .longOpt("cluster")
-        .desc("Calculates cluster address")
         .build();
 
     Option b = Option.builder("b")
@@ -36,7 +37,7 @@ public static void main(String[] args) {
         .argName("offset")
         .valueSeparator('=')
         .hasArg()
-        .desc("This specifies the physical address (sector number) of the start of the partition").build();
+        .build();
 
     Option byte_address = Option.builder("B")
         .longOpt("byte-address")
@@ -122,25 +123,25 @@ public static void main(String[] args) {
     {
         commandLine = parser.parse(options, args);
 
-        if (commandLine.hasOption("L"))
+        if (commandLine.hasOption("L") && !commandLine.hasOption("P") && !commandLine.hasOption("C") )
         {
-            System.out.println("Option L is present.");
+            System.out.println("Calculating Logical Address.");
         }
 
-        if (commandLine.hasOption("P"))
+        if (commandLine.hasOption("P") && !commandLine.hasOption("L") && !commandLine.hasOption("C") )
         {
-            System.out.println("Option P is present.");
+            System.out.println("Calculating Physical Address.");
         }
 
-        if (commandLine.hasOption("C"))
+        if (commandLine.hasOption("C") && !commandLine.hasOption("P") && !commandLine.hasOption("L") )
         {
-            System.out.println("Option C is present.");
+            System.out.println("Calculating Cluster Address.");
         }
 
         if (commandLine.hasOption("b"))
         {
-                        System.out.print("Option b is present. Offset is:: ");
-                        System.out.println(commandLine.getOptionValue("b"));
+            System.out.print("Option b is present. Offset is: ");
+            System.out.println(commandLine.getOptionValue("b"));
         }
 
         if (commandLine.hasOption("byte-address"))
@@ -208,7 +209,7 @@ public static void main(String[] args) {
             System.out.println();
         }
 
-    }
+     }
     catch (ParseException exception)
     {
         System.out.print("Parse error: ");
