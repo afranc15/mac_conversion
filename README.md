@@ -1,5 +1,9 @@
 # CSE 469 Computer and Network Forensics Class Project 
 
+Commands javac -cp commons-cli-1.4.jar: address4forensics.java
+         java -cp commons-cli-1.4.jar: address4forensics
+
+
 ## Task 1 
 
 #### Tool A) Address Conversion

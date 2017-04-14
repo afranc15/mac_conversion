@@ -1,0 +1,2 @@
+#!/bin/bash
+javac -cp commons-cli-1.4.jar: address4forensics.java
