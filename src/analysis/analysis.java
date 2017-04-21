@@ -14,16 +14,26 @@ public class analysis {
     public static void main(String[] args) {
         try
             {
-                URL path = analysis.class.getResource("TestImage2.img");
+                URL path = analysis.class.getResource("TestImage1.img");
 
                 File f = new File(path.getFile());
 
                 HashCode sha = Files.hash(f , Hashing.sha1());
                 HashCode md5 = Files.hash(f , Hashing.md5());
 
-                System.out.println("MD5: " + md5.toString());
-                System.out.println("SHA-1: " + sha.toString());
+                URL pathb = analysis.class.getResource("TestImage2.img");
 
+                File fb = new File(pathb.getFile());
+
+                HashCode shab = Files.hash(fb , Hashing.sha1());
+                HashCode md5b = Files.hash(fb , Hashing.md5());
+
+
+                System.out.println("Test Image 1 MD5: " + md5.toString());
+                System.out.println("Test Image 1 SHA-1: " + sha.toString());
+
+                System.out.println("Test Image 2 MD5: " + md5b.toString());
+                System.out.println("Test Image 2 SHA-1: " + shab.toString());
 
             }
         catch (IOException ex) {

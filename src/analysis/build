@@ -1,0 +1,5 @@
+#!/bin/bash
+javac -cp guava-21.0.jar: analysis.java
+echo "Compiling.."
+echo ""
+java -cp guava-21.0.jar: analysis
