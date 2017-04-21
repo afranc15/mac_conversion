@@ -14,8 +14,6 @@ public class analysis {
     public static void main(String[] args) {
         try
             {
-
-
                 //===== Get File and Hash Value =======//
 
                 URL path = analysis.class.getResource("TestImage1.img");
