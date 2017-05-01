@@ -2,7 +2,9 @@ import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 import com.google.common.io.Files;
-
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.io.*;
 import java.nio.file.Path;
 import java.net.URL;
