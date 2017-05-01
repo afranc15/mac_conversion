@@ -56,9 +56,6 @@ public class mac_conversion {
         littleEndian1 = hex.substring(0,2);
         littleEndian2 = hex.substring(2);
         hex = littleEndian2.concat(littleEndian1);
-        System.out.println("le1: "+littleEndian1
-                +"\nle2: "+ littleEndian2
-                + "\nhex: " + hex);
         return hex;
     }
 
@@ -99,13 +96,13 @@ public class mac_conversion {
         for (int ii = timeBinary.length(); ii < 16; ii++) {
             timeBinary = "0" + timeBinary;
         }
-        System.out.println(timeBinary);
+
         // Separate timeBinary into year, month, and day binary
         String h, m,s;
         h = timeBinary.substring(0, 5);
         m = timeBinary.substring(5, 11);
         s = timeBinary.substring(11);
-        System.out.println(m);
+
         // Convert binary year, month, and day into a int values
         int hr, mins, secs;
         hr = Integer.parseInt(h, 2); //Start year is 1980
