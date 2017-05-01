@@ -92,9 +92,9 @@ public class analysis {
         String startSectorStr = String.format("%02X", bytes[11]) +String.format("%02X", bytes[10]) +String.format("%02X", bytes[9]) + String.format("%02x", bytes[8]);
         long startSector = Long.parseLong(startSectorStr, 16);
         String type = String.format("%02X", bytes[4]);
-        String endSectorStr = String.format("%02X", bytes[15]) + String.format("%02X", bytes[14]) +String.format("%02X", bytes[13]) + String.format("%02x", bytes[12]);
-        long endSector = Long.parseLong(endSectorStr, 16);
-        long size = endSector - startSector + 1;
+        String sizeSectorStr = String.format("%02X", bytes[15]) + String.format("%02X", bytes[14]) +String.format("%02X", bytes[13]) + String.format("%02x", bytes[12]);
+        long size = Long.parseLong(sizeSectorStr, 16);
+
 
 
 
