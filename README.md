@@ -1,9 +1,5 @@
 # CSE 469 Computer and Network Forensics Class Project 
 
-Commands javac -cp commons-cli-1.4.jar: address4forensics.java
-         java -cp commons-cli-1.4.jar: address4forensics
-
-
 ## Task 1 
 
 #### Tool A) Address Conversion
@@ -83,7 +79,6 @@ Another example shows the utility getting the physical address of cluster 58, in
 
 $ address4forensics –P –-partition-start=128 –c 58 –k 4 –r 6 –t 2 –f 16
 390
-
 
 
 #### Tool B) MAC Conversion
